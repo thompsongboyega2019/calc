@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        function calLat(){
+        var lathr = document.getElementById("lathr").value;
+        var latmin = document.getElementById("latmin").value;
+        var latsec = document.getElementById("latsec").value;
+          calLatmin = parseInt(latmin) * 60;
+          var lat = parseInt(lathr) + ((calLatmin + parseFloat(latsec)) / 3600)
+          document.getElementById("latValue").innerHTML = lat.toFixed(4);    
+      }
+      function calLong(){
+        var hr = document.getElementById("hr").value;
+        var min = document.getElementById("min").value;
+        var sec = document.getElementById("sec").value;
+          calmin = parseInt(min) * 60;
+          var long = parseInt(hr) + ((calmin + parseFloat(sec)) / 3600);
+          document.getElementById("longValue").innerHTML = long.toFixed(4);    
+      }
+    </script>
+
+    <style type="text/css">
+        body {
+            background-color: #000;
+            background-image: url("img4.png");
+        }
+		input {
+            padding: 15px;
+            margin: 10px;
+			width: 170px;
+            border-radius: 20px;
+            border: 1px solid #E51837;
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+		}
+        section {
+            position: absolute;
+            left: 350px;
+            bottom: 90px;
+            border: 1px solid #FFF;
+            background-color: #FFF;
+            padding: 50px;
+            border-radius: 30px;
+        }
+        label,p {
+            font-size: 25px;
+            color: #000;
+        }
+        ::placeholder {
+                  color: #000;
+              }
+	</style>
+</head>
+<body>
+    <section class="calculator">
+        <div style="margin-top: 10px;">
+            <!---<label for=""><strong>Latitude</strong></label><br>--->
+            <input id="lathr" type="text" name="" placeholder="hr" value=""> 
+            <input id="latmin" type="text" name="" placeholder="min" value="">
+            <input id="latsec" type="text" name="" placeholder="sec" value="" onkeyup="calLat()">
+            <p> Latitude Value = <span id="latValue"></span></p>
+        </div>
+        <div>
+            <!---<label for=""><strong>Longitude</strong></label><br>--->
+            <div>
+            <input id="hr" type="text" name="" placeholder="hr" value=""> 
+            <input id="min" type="text" name="" placeholder="min" value="">
+            <input id="sec" type="text" name="" placeholder="sec" value="" onkeyup="calLong()">
+            <!--<input  id="total" type="text">-->
+            <p> Longitude Value = <span id="longValue"></span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
